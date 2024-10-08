@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smoke_tracker/widgets/Panel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,95 +28,76 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.grey,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(25.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "No smoking days",
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        "15",
-                        style: TextStyle(
-                          fontSize: 48,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        "30% to next day",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      LinearProgressIndicator(
-                        value: 0.7,
-                        backgroundColor: Colors.white,
-                        valueColor: AlwaysStoppedAnimation(
-                          Color.fromARGB(125, 128, 128, 128),
-                        ),
-                      )
-                    ],
+            const Panel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "No smoking days",
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                  Text(
+                    "15",
+                    style: TextStyle(
+                      fontSize: 48,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    "30% to next day",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  LinearProgressIndicator(
+                    value: 0.7,
+                    backgroundColor: Colors.white,
+                    valueColor: AlwaysStoppedAnimation(
+                      Color.fromARGB(125, 128, 128, 128),
+                    ),
+                  )
+                ],
               ),
             ),
             const SizedBox(
               height: 2,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.grey,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Smoking heat map",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: heatMap(),
-                      ),
-                    ],
+            Panel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Smoking heat map",
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 5),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: heatMap(),
+                  ),
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.grey.shade400,
-        child: const Icon(Icons.add),
+        backgroundColor: const Color.fromRGBO(166, 173, 167, 1),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );
   }
