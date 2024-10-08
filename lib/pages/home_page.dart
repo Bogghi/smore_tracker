@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smoke_tracker/widgets/Panel.dart';
+import 'package:smoke_tracker/widgets/panel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(width: 5),
-                      const Text("10+", style: TextStyle(color: Colors.white)),
+                      const Text("11+", style: TextStyle(color: Colors.white)),
                       const SizedBox(width: 5),
                       Padding(
                         padding: const EdgeInsets.all(2.0),
@@ -199,9 +199,18 @@ class _HomePageState extends State<HomePage> {
       }
     }
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: columns,
+    return Column(
+      children: [
+        Row(
+          children: [
+
+          ],
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: columns,
+        ),
+      ],
     );
   }
 }
