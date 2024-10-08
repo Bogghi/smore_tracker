@@ -85,6 +85,66 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     child: heatMap(),
                   ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      const Text("0", style: TextStyle(color: Colors.white)),
+                      const SizedBox(width: 5),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            color: Colors.white60,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      const Text("1-5", style: TextStyle(color: Colors.white)),
+                      const SizedBox(width: 5),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(145, 145, 145, 1.0),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      const Text("6-10", style: TextStyle(color: Colors.white)),
+                      const SizedBox(width: 5),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(70, 70, 70, 1.0),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      const Text("10+", style: TextStyle(color: Colors.white)),
+                      const SizedBox(width: 5),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(0, 0, 0, 1.0),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -128,13 +188,11 @@ class _HomePageState extends State<HomePage> {
             gridItem,
             gridItem,
             gridItem,
-            gridItem,
           ],
         ));
       }else {
         columns.add(Column(
           children: [
-            gridItem,
             gridItem,
           ],
         ));
