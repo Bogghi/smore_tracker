@@ -11,16 +11,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: IconButton(
-            icon: const Icon(Icons.menu),
-            iconSize: 25,
-            onPressed: () {},
+      appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              icon: const Icon(Icons.menu),
+              iconSize: 25,
+              color: Colors.white,
+              onPressed: () {},
+            ),
           ),
-        )
-      ]),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -108,6 +111,11 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.grey.shade400,
+        child: const Icon(Icons.add),
       ),
     );
   }

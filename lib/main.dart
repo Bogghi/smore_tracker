@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
+        scaffoldBackgroundColor: const Color.fromRGBO(142, 152, 145, 1),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+        ),
+        textTheme: const TextTheme(),
       ),
       home: HomePage(),
     );
