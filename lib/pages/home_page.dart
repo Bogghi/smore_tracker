@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smoke_tracker/assets/heatmap_colors_enum.dart';
 import 'package:smoke_tracker/widgets/panel.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,90 +69,28 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Smoking heat map",
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 5),
+                    child: Text(
+                      "Smoking heat map",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: heatMap(),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: heatMap(),
+                    ),
                   ),
-                  const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      const Text("0", style: TextStyle(color: Colors.white)),
-                      const SizedBox(width: 5),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                            color: Colors.white60,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      const Text("1-5", style: TextStyle(color: Colors.white)),
-                      const SizedBox(width: 5),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(145, 145, 145, 1.0),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      const Text("6-10", style: TextStyle(color: Colors.white)),
-                      const SizedBox(width: 5),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(70, 70, 70, 1.0),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      const Text("11+", style: TextStyle(color: Colors.white)),
-                      const SizedBox(width: 5),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(0, 0, 0, 1.0),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
+                  heatMapExplain(),
                 ],
               ),
             ),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color.fromRGBO(166, 173, 167, 1),
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
         ),
       ),
     );
@@ -171,7 +105,7 @@ class _HomePageState extends State<HomePage> {
         width: 15,
         height: 15,
         decoration: BoxDecoration(
-          color: Colors.white60,
+          color: HeatmapColors.zero.getColor(),
           borderRadius: BorderRadius.circular(4),
         ),
       ),
@@ -202,15 +136,43 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: [
         Row(
-          children: [
-
-          ],
-        ),
-        Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: columns,
         ),
       ],
+    );
+  }
+
+  Widget heatMapExplain() {
+    List<Widget> rowItems = [];
+
+    for (var color in HeatmapColors.values) {
+      rowItems.add(
+        Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Container(
+            width: 15,
+            height: 15,
+            decoration: BoxDecoration(
+              color: color.getColor(),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        ),
+      );
+      rowItems.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: Text(
+            color.getLabel(),
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    }
+
+    return Row(
+      children: rowItems,
     );
   }
 }

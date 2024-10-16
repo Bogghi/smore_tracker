@@ -20,4 +20,18 @@ enum HeatmapColors {
         return Colors.white60;
     }
   }
+  String getLabel() {
+    switch (this) {
+      case HeatmapColors.zero:
+        return "0";
+      case HeatmapColors.oneToFive:
+        return "1-5";
+      case HeatmapColors.sixToTen:
+        return "6-10";
+      case HeatmapColors.elevenPlus:
+        return "11+";
+      default:
+        return "0";
+    }
+  }
 }
