@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class Panel extends StatelessWidget {
   final Widget child;
+  double padding;
 
-  const Panel({
+  Panel({
     super.key,
     required this.child,
+    this.padding = 25,
   });
 
   @override
@@ -24,7 +26,7 @@ class Panel extends StatelessWidget {
           ]
         ),
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(padding),
           child: child,
         ),
       ),
