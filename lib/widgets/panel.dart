@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 class Panel extends StatelessWidget {
   final Widget child;
   double padding;
+  double horizontalPadding;
 
   Panel({
     super.key,
     required this.child,
     this.padding = 25,
+    this.horizontalPadding = 0
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
