@@ -40,76 +40,31 @@ class StatsView extends StatelessWidget {
                 SizedBox(
                   width:  double.infinity,
                   height: unit*2+unit/2,
-                  child: const Align(
+                  child: Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Icon(Icons.circle_outlined),
-                              const SizedBox(width: 5),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: ElevatedButton(
+                            onPressed: (){},
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.circle_outlined,
+                                  color: Theme.of(context).iconTheme.color,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Icon(Icons.circle),
-                              const SizedBox(width: 5),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
+                                const SizedBox(width: 5),
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "No Smoking",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.white),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Icon(Icons.circle_outlined),
-                              const SizedBox(width: 5),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            children: [
-                              Icon(Icons.check_circle_outline),
-                              const SizedBox(width: 5),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],

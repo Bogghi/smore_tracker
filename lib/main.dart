@@ -23,6 +23,18 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
         ),
         textTheme: const TextTheme(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.grey,
+            textStyle: const TextStyle(
+              color: Colors.white,
+            ),
+            overlayColor: Colors.grey.shade800,
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
       ),
       home: HomePage(),
     );
