@@ -30,11 +30,32 @@ class StatsView extends StatelessWidget {
                 SizedBox(
                   width:  double.infinity,
                   height: unit/2,
-                  child: const Align(
+                  child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Today Habbyts",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Today Habbyts",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                        const Spacer(),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0), // Adjust the radius as needed
+                            ),
+                            padding: EdgeInsets.all(5),
+                            minimumSize: Size.zero,
+                          ),
+                          child: Transform.rotate(
+                            angle: 45 * 3.1415926535897932 / 180,
+                            child: const Icon(Icons.arrow_upward, color: Colors.white),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
