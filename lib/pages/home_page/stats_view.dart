@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:smoke_tracker/widgets/panel.dart';
+import 'package:smoke_tracker/widgets/habit_button.dart';
 import 'package:smoke_tracker/meta/constants.dart';
 
 class StatsView extends StatelessWidget {
@@ -44,65 +45,17 @@ class StatsView extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
-                        ElevatedButton(
+                        HabitButton(
+                          label: "No Smoking",
                           onPressed: (){},
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.circle_outlined,
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              const SizedBox(width: 5),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
-                        ElevatedButton(
+                        HabitButton(
+                          label: "No Smoking",
                           onPressed: (){},
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.circle_outlined,
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              const SizedBox(width: 5),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
-                        ElevatedButton(
+                        HabitButton(
+                          label: "No Smoking",
                           onPressed: (){},
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.circle_outlined,
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              const SizedBox(width: 5),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "No Smoking",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ],
                     ),
