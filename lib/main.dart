@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
             overlayColor: Colors.grey.shade800,
           ),
         ),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.grey.shade600,
         ),
       ),
       home: HomePage(),

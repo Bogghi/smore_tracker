@@ -39,32 +39,69 @@ class StatsView extends StatelessWidget {
                 ),
                 SizedBox(
                   width:  double.infinity,
-                  height: unit*2+unit/2,
+                  height: unit*2+(unit/3*2),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: ElevatedButton(
-                            onPressed: (){},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.circle_outlined,
-                                  color: Theme.of(context).iconTheme.color,
+                        ElevatedButton(
+                          onPressed: (){},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.circle_outlined,
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              const SizedBox(width: 5),
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "No Smoking",
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
                                 ),
-                                const SizedBox(width: 5),
-                                const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "No Smoking",
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                  ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: (){},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.circle_outlined,
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              const SizedBox(width: 5),
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "No Smoking",
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: (){},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.circle_outlined,
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              const SizedBox(width: 5),
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "No Smoking",
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
