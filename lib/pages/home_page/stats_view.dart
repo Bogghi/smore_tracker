@@ -4,6 +4,8 @@ import 'package:smoke_tracker/widgets/panel.dart';
 import 'package:smoke_tracker/widgets/habit_button.dart';
 import 'package:smoke_tracker/meta/constants.dart';
 
+import 'package:animated_toggle_switch/animated_toggle_switch.dart';
+
 class StatsView extends StatelessWidget {
   final double viewHeight;
 
@@ -22,7 +24,7 @@ class StatsView extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          height: firstPanelHeight,
+          height: unit*10,
           child: Panel(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,14 +88,42 @@ class StatsView extends StatelessWidget {
             ),
           )
         ),
-        const SizedBox(height: spacing),
+        /*const SizedBox(height: spacing),
         SizedBox(
           width: double.infinity,
           height: secondPanelHeight,
           child: Panel(
-            child: Placeholder()
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Expanded(
+                      flex: 3,
+                      child: Text(
+                        "Habit Heatmap",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: unit/3*2,
+                        child: AnimatedToggleSwitch<int>.rolling(
+                            current: 0,
+                            values: [0, 1],
+                            onChanged: (i) => print('Current index: $i'),
+                            iconBuilder: (i,x) => Icon(Icons.circle, color: Colors.white),
+                            // iconList: [...], you can use iconBuilder, customIconBuilder or iconList
+                          // many more parameters available
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
           ),
-        )
+        )*/
       ],
     );
   }

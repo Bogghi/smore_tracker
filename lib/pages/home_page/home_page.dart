@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smoke_tracker/widgets/panel.dart';
 
 import 'stats_view.dart';
 import 'package:smoke_tracker/meta/constants.dart';
@@ -30,9 +31,30 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox (
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width*0.45,
                 height: navigatorHeight,
-                child: Placeholder(),
+                child: Panel(
+                  padding: 10,
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(50, 90),
+                        ),
+                        child: const Icon(Icons.add)
+                      ),
+                      const Spacer(),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(50, 90),
+                        ),
+                        child: const Icon(Icons.settings),
+                      ),
+                    ],
+                  ),
+                ),
               )
             ],
           ),
