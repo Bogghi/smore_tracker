@@ -43,12 +43,10 @@ class _AddHabitBottomSheetState extends State<AddHabitBottomSheet> {
             ElevatedButton(
               onPressed: () {
                 if(habitNameController.text.isEmpty) {
-                  print("not valid habit");
                   return;
                 }
                 context.read<HabitsProvider>().addHabit(habitNameController.text);
-                print("current habits");
-                print(context.read<HabitsProvider>().getHabits());
+                Navigator.of(context).pop();
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),

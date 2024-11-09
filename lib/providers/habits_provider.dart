@@ -15,6 +15,7 @@ class HabitsProvider extends ChangeNotifier {
     habits![habit] = {
       'key': 'hb_${_genID()}',
       'name': habit,
+      'type': 'daily',
       'entry': [],
       'created': DateTime.now(),
     };
