@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:smoke_tracker/widgets/panel.dart';
 import 'package:smoke_tracker/widgets/habit_button.dart';
 import 'package:smoke_tracker/meta/constants.dart';
 
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
+
+import 'package:smoke_tracker/providers/habits_provider.dart';
 
 class StatsView extends StatelessWidget {
   final double viewHeight;
@@ -61,29 +64,21 @@ class StatsView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width:  double.infinity,
-                  height: unit*2+(unit/3*2),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: SingleChildScrollView(
                     child: Column(
-                      children: [
-                        HabitButton(
-                          label: "No Smoking",
-                          onPressed: (){},
-                        ),
-                        HabitButton(
-                          label: "No Smoking",
-                          onPressed: (){},
-                        ),
-                        HabitButton(
-                          label: "No Smoking",
-                          onPressed: (){},
-                        ),
-                      ],
+                      children: context.watch<HabitsProvider>().habits?.entries.map((e) {
+                        return HabitButton(
+                          label: e.value['name'] ?? "",
+                          onPressed: () {
+
+                          },
+                        );
+                      }).toList() ?? [],
                     ),
                   ),
-                ),
+                )
               ],
             ),
           )
