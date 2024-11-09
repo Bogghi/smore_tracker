@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smoke_tracker/widgets/panel.dart';
 
 import 'stats_view.dart';
+import 'add_habit_bottom_sheet.dart';
 import 'package:smoke_tracker/meta/constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,7 +39,15 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            backgroundColor: Colors.grey,
+                            builder: (BuildContext context) {
+                              return AddHabitBottomSheet();
+                            }
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(50, 90),
                         ),

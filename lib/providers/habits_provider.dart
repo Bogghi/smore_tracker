@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Habits extends ChangeNotifier {
+class HabitsProvider extends ChangeNotifier {
   Map<String, dynamic>? habits;
 
-  Habits({
+  HabitsProvider({
     this.habits,
   });
 
@@ -13,7 +13,8 @@ class Habits extends ChangeNotifier {
       return false;
     }
     habits![habit] = {
-      'key': 'hb_${genID()}',
+      'key': 'hb_${_genID()}',
+      'name': habit,
       'entry': [],
       'created': DateTime.now(),
     };
@@ -27,7 +28,7 @@ class Habits extends ChangeNotifier {
     }
 
     habits![habit]['entry'].add({
-      'key': 'hb_e_${genID()}',
+      'key': 'hb_e_${_genID()}',
       'logTime': DateTime.now(),
     });
 
@@ -35,7 +36,11 @@ class Habits extends ChangeNotifier {
     return true;
   }
 
-  String genID() {
+  Map<String,dynamic>? getHabits() {
+    return habits;
+  }
+
+  String _genID() {
     return DateTime.now().millisecondsSinceEpoch.toString();
   }
 }
