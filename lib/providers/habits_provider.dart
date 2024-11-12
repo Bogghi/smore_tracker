@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 
 class HabitsProvider extends ChangeNotifier {
   Map<String, dynamic>? habits;
@@ -12,33 +14,50 @@ class HabitsProvider extends ChangeNotifier {
     if (habits!.containsKey(habit)) {
       return false;
     }
-    habits![habit] = {
-      'key': 'hb_${_genID()}',
+    final key = 'hb_${_genID()}';
+    habits![key] = {
+      'key': key,
       'name': habit,
       'type': 'daily',
       'entry': [],
-      'created': DateTime.now(),
+      'created': DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
     };
     notifyListeners();
     return true;
   }
 
-  bool logHabit(String habit) {
-    if(habits == null || !habits?[habit]) {
+  bool logHabit(String key) {
+    if(habits == null || habits?[key] == null) {
       return false;
     }
 
-    habits![habit]['entry'].add({
-      'key': 'hb_e_${_genID()}',
-      'logTime': DateTime.now(),
+    habits![key]['entry'].add({
+      'e_key': 'hb_e_${_genID()}',
+      'logTime': DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
     });
 
     notifyListeners();
     return true;
   }
 
-  Map<String,dynamic>? getHabits() {
-    return habits;
+  List<dynamic> getTodayHabits() {
+    final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final List<dynamic> todayHabits = [];
+
+    habits?.forEach((key, habit) {
+      var firstMatch = habit['entry'].firstWhere(
+            (entry) => entry['logTime'].substring(0, 10) == today,
+        orElse: () => "no match",
+      );
+      if(habit['type'] == 'daily' && firstMatch == "no match") {
+        todayHabits.add({
+          'name': habit['name'],
+          'key': habit['key'],
+        });
+      }
+    });
+
+    return todayHabits;
   }
 
   String _genID() {

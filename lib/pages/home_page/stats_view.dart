@@ -68,11 +68,11 @@ class StatsView extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: SingleChildScrollView(
                     child: Column(
-                      children: context.watch<HabitsProvider>().habits?.entries.map((e) {
+                      children: context.watch<HabitsProvider>().getTodayHabits().map((e) {
                         return HabitButton(
-                          label: e.value['name'] ?? "",
+                          label: e['name'],
                           onPressed: () {
-
+                            context.read<HabitsProvider>().logHabit(e['key']);
                           },
                         );
                       }).toList() ?? [],
