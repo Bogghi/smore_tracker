@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'package:smoke_tracker/assets/habit_type_enum.dart';
+
 
 class HabitsProvider extends ChangeNotifier {
   Map<String, dynamic>? habits;
@@ -18,7 +20,7 @@ class HabitsProvider extends ChangeNotifier {
     habits![key] = {
       'key': key,
       'name': habit,
-      'type': 'daily',
+      'type': HabitTypeEnum.daily,
       'entry': [],
       'created': DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
     };
@@ -40,21 +42,27 @@ class HabitsProvider extends ChangeNotifier {
     return true;
   }
 
-  List<dynamic> getTodayHabits() {
+  List<dynamic> getHabits({HabitTypeEnum type = HabitTypeEnum.daily, bool entry = false}) {
     final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final List<dynamic> todayHabits = [];
 
     habits?.forEach((key, habit) {
-      var firstMatch = habit['entry'].firstWhere(
-            (entry) => entry['logTime'].substring(0, 10) == today,
-        orElse: () => "no match",
-      );
-      if(habit['type'] == 'daily' && firstMatch == "no match") {
-        todayHabits.add({
-          'name': habit['name'],
-          'key': habit['key'],
-        });
+
+      if(!entry) {
+        var firstMatch = habit['entry'].firstWhere(
+              (entry) => entry['logTime'].substring(0, 10) == today,
+          orElse: () => "no match",
+        );
+        if(habit['type'] == type && firstMatch == "no match") {
+          todayHabits.add({
+            'name': habit['name'],
+            'key': habit['key'],
+          });
+        }
+      }else {
+
       }
+
     });
 
     return todayHabits;

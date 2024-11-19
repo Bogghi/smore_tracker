@@ -63,7 +63,7 @@ class _StatsViewState extends State<StatsView> {
                   alignment: Alignment.centerLeft,
                   child: SingleChildScrollView(
                     child: Column(
-                      children: context.watch<HabitsProvider>().getTodayHabits().map((e) {
+                      children: context.watch<HabitsProvider>().getHabits().map((e) {
                         return HabitButton(
                           label: e['name'],
                           onPressed: () {
